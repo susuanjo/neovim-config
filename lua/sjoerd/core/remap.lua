@@ -60,9 +60,10 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- VSCode Remaps
+-- Comment / uncomment
 vim.keymap.set("v", "<C-/>", function() -- Would like this to work in normal and insert modes as well...
     return require("vim._comment").operator() -- Would like this to not exit visual mode...
 end, { expr = true })
-vim.keymap.set("v", "<Tab>", ">|gv")
-vim.keymap.set("v", "<S-Tab>", "<|gv")
-vim.keymap.set("i", "<S-Tab>", "<Esc>|v|<|i")
+vim.keymap.set("v", "<Tab>", ">|gv") -- multiline indent
+vim.keymap.set("v", "<S-Tab>", "<|gv") -- multiline deindent
+vim.keymap.set("i", "<S-Tab>", "<Esc>|v|<|i") -- indent in insert mode

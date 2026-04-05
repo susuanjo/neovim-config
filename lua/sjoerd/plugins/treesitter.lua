@@ -19,6 +19,7 @@ return {
               "yaml",
               "html",
               "xml",
+              "rust",
           },
 
 		  -- Install parsers synchronously (only applied to `ensure_installed`)
