@@ -3,7 +3,7 @@ return {
   "f-person/auto-dark-mode.nvim",
   dependencies = {
     "HUAHUAI23/nvim-quietlight",
-    "folke/tokyonight.nvim",
+    "loctvl842/monokai-pro.nvim",
   },
   opts = {
     -- your configuration comes here
@@ -11,7 +11,7 @@ return {
     -- refer to the configuration section below
     set_dark_mode = function()
         vim.api.nvim_set_option_value("background", "dark", {})
-        vim.cmd([[colorscheme tokyonight]])
+        vim.cmd([[colorscheme monokai-pro]])
     end,
     set_light_mode = function()
         vim.api.nvim_set_option_value("background", "light", {})

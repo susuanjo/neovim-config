@@ -30,3 +30,30 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '·', space = '·' }
+
+-- mappings to switch away from terminal windows running terminal mode
+vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-w>h]])
+vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>l]])
+vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-w>j]])
+vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-w>k]])
+
+-- mapping that toggles the diagnostic window for problems in the code.
+vim.keymap.set("n", "<leader>er", function()
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local config = vim.api.nvim_win_get_config(win)
+
+    if config.relative ~= "" and config.focusable then
+        vim.api.nvim_win_close(win, false)
+        return
+    end
+  end
+
+  vim.diagnostic.open_float(nil, {
+    focus = false,
+    border = "rounded",
+    source = "always",
+  })
+end, { desc = "Toggle diagnostic float" })
+

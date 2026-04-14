@@ -10,3 +10,20 @@ vim.api.nvim_create_autocmd("VimEnter", {
         end
     end,
 })
+
+local two_space_ft = {
+  "lua",
+  "javascript",
+  "typescript",
+  "json",
+  "yaml",
+}
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = two_space_ft,
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
+  end,
+})
+
