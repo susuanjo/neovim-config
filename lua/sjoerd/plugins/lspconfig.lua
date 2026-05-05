@@ -14,7 +14,10 @@ return {
       lsp_zero.on_attach(function(_, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
-      lsp_zero.default_keymaps({buffer = bufnr})
+        lsp_zero.default_keymaps({buffer = bufnr})
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {buffer = bufnr})           -- rename symbol
+        vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {buffer = bufnr}) -- code actions / refactor
+        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {buffer = bufnr})         -- go to definition
       end)
 
       vim.lsp.config('nixd', {

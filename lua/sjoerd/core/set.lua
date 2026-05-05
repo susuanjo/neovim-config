@@ -21,6 +21,8 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.ignorecase = true  -- case insensitive search
+vim.opt.smartcase = true   -- unless the pattern contains uppercase
 
 vim.opt.termguicolors = true
 
@@ -32,6 +34,9 @@ vim.opt.updatetime = 50
 
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '·', space = '·' }
+
+vim.opt.wrap = true        -- enable line wrapping
+vim.opt.linebreak = true   -- break at word boundaries, not mid-word
 
 -- mappings to switch away from terminal windows running terminal mode
 vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-w>h]])
